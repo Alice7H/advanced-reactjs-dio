@@ -1,36 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import Twitter from './components/Twitter';
+import { ThemeContext, themes } from './Theme';
+import Card from './components/Card';
 
-function App(props) {
-  const [loading, setLoading] = useState(false);
-  const [actived, setActived] = useState(true);
-
-  const posts = [
-    {
-      title: 'test',
-      description: 'foo'
-    },
-    {
-      title: 'test2',
-      description: 'foo2'
-    }
-  ];
+function App() {
+  const [token, setToken] = useState();
 
   useEffect(() => {
     setTimeout(() => {
-      setLoading(true);
-    }, 2000)
+      setToken('J1da4woAs21b43kiAd');
+    }, 4000)
   }, [])
 
-  const onRemove = () => setActived(false);
-
   return (
-    <>
-      <button type="button" onClick={onRemove}>Remove componente</button>
-      {
-        actived && <Twitter posts={posts} loading={loading} />
-      }
-    </>
+    <ThemeContext.Provider value={{ ...themes.primary, token }}>
+      <Card />
+    </ThemeContext.Provider>
   );
 }
 
