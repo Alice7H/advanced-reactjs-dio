@@ -63,6 +63,12 @@ Aplique-o com moderação porque dificulta a reutilização de componentes.
 
 Um padrão comum no React é que um componente pode retornar múltiplos elementos. Os fragmentos permitem agrupar uma lisa de filhos sem adicionar nós extras ao DOM.
 
+## Error Boundaries
+
+Um erro de JavaScript em uma parte da UI não deve quebrar toda a aplicação. Para resolver este problema para usuários do React, a partir do React 16, introduziu-se um novo conceito de `error boundary`.
+
+Error boundaries não capturam erros em manipuladores de evento, código assíncrono, renderizações no servidor e erros lançados na própria error boundary.
+
 ## Aprenda mais
 
 Você pode aprender mais com a [documentação do Create React App](https://facebook.github.io/create-react-app/docs/getting-started).
