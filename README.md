@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+# Práticas avançadas com ReactJS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Ministrado por Bruno Carneiro
 
-## Available Scripts
+Este projeto foi construído com [Create React App](https://github.com/facebook/create-react-app).
 
-In the project directory, you can run:
+## Para rodar a aplicação
 
-### `npm start`
+Para rodar a aplicação em modo de desenvolvimento use o comando `npm start` e informe [http://localhost:3000](http://localhost:3000) para vê-lo em seu navegador.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+A página recarregará automaticamente a medida que você fizer suas modificações.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Ciclo de vida e suas fases
 
-### `npm test`
+- componenteDidMount:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  É invocado imediatamente após um componente ser montado.
 
-### `npm run build`
+  Se precisar carregar data de um endpoint remoto, este é um bom lugar para instanciar sua requisição ou para colocar qualquer subscrição. Se fizer isto, não esqueça de desinscrever depois.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- componenteDidUpdate => o vídeo não exibe
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  É invocado imediatamente após alguma atualização ocorrer. Este método não é chamado pelo initial render.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  Use isto como uma oportunidade para alterar o DOM quando o componente for atualizado. Este também é um bom lugar para realizar requisições de rede enquanto compara as props atuais com as props anteriores.
 
-### `npm run eject`
+- componenteWillUnmount:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  É invocado imediatamente antes que um componente seja desmontado e destruído.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  Qualquer limpeza necessária deve ser realizada neste método, como invalidar timers, cancelar requisições de rede, ou limpar qualquer subscrição que foi criada
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- shouldComponentUpdate:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+  Este método faz com que o componente seja renderizado novamente apenas quando houver uma mudança no estado ou nos suportes de um componente e essa mudança afetará a saída.
 
-## Learn More
+  Ele é chamado antes de renderizar um componente já montado quando novos adereços ou estados estão sendo recebidos.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  Se ele retornar falso, os métodos render(), componentWillUpdate() e componentDidUpdate() não são chamados.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  Este método existe somente para otimização de performance.
 
-### Code Splitting
+## Hooks
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Aprenda mais
 
-### Analyzing the Bundle Size
+Você pode aprender mais com a [documentação do Create React App](https://facebook.github.io/create-react-app/docs/getting-started).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Para aprender React, veja a [documentação do React](https://reactjs.org/).
