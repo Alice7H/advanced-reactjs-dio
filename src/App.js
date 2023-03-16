@@ -1,50 +1,37 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import Twitter from './components/Twitter';
 
-class App extends Component {
+function App(props) {
+  const [loading, setLoading] = useState(false);
+  const [actived, setActived] = useState(true);
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      loading: false,
-      actived: true,
-
+  const posts = [
+    {
+      title: 'test',
+      description: 'foo'
+    },
+    {
+      title: 'test2',
+      description: 'foo2'
     }
-  }
+  ];
 
-  componentDidMount() {
+  useEffect(() => {
     setTimeout(() => {
-      this.setState({ loading: true });
+      setLoading(true);
     }, 2000)
-  }
+  }, [])
 
-  onRemove = () => {
-    this.setState({
-      actived: false
-    })
-  }
+  const onRemove = () => setActived(false);
 
-  render() {
-    const posts = [
+  return (
+    <>
+      <button type="button" onClick={onRemove}>Remove componente</button>
       {
-        title: 'test',
-        description: 'foo'
-      },
-      {
-        title: 'test2',
-        description: 'foo2'
+        actived && <Twitter posts={posts} loading={loading} />
       }
-    ];
-
-    return (
-      <>
-        <button type="button" onClick={this.onRemove}>Remove componente</button>
-        {
-          this.state.actived && <Twitter posts={posts} loading={this.state.loading} />
-        }
-      </>
-    );
-  }
+    </>
+  );
 }
 
 export default App;
