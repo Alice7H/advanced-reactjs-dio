@@ -51,6 +51,18 @@ Permite que você pule a renderização de um componente quando seus props estã
 
 Podemos especificar uma função de comparação personalizada, ignorar a re-renderização quando os adereços estão inalterados, atualizar um componente memorizado usando contexto ou estado.
 
+## Context API
+
+É uma maneira de passar dados pela árvore de componentes se ter que passar props manualmente em todos os níveis.
+
+O Context foi projetado para compartilhar dados que podem ser considerados “globais”, como o usuário autenticado atual, tema ou idioma preferido.
+
+Aplique-o com moderação porque dificulta a reutilização de componentes.
+
+## Fragments
+
+Um padrão comum no React é que um componente pode retornar múltiplos elementos. Os fragmentos permitem agrupar uma lisa de filhos sem adicionar nós extras ao DOM.
+
 ## Aprenda mais
 
 Você pode aprender mais com a [documentação do Create React App](https://facebook.github.io/create-react-app/docs/getting-started).
