@@ -42,6 +42,15 @@ A página recarregará automaticamente a medida que você fizer suas modificaç�
 
 ## Hooks
 
+- useState
+- useEffect
+
+## Memo
+
+Permite que você pule a renderização de um componente quando seus props estão inalterados.
+
+Podemos especificar uma função de comparação personalizada, ignorar a re-renderização quando os adereços estão inalterados, atualizar um componente memorizado usando contexto ou estado.
+
 ## Aprenda mais
 
 Você pode aprender mais com a [documentação do Create React App](https://facebook.github.io/create-react-app/docs/getting-started).
