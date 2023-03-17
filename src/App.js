@@ -1,46 +1,44 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
+import Button from './Components/Button';
+import Calc from './Components/Calc';
+import Table from './Components/Table';
 
 function App() {
-  const [count, setCount] = useState(0);
-  const prevCountRef = useRef();
-  const inputRef = useRef();
-  const valueRef = useRef(1);
+  const [value, setValue] = useState(0);
+  const [min, setMin] = useState(0);
+  const max = 30;
+  const shoes = ["sapatos", "tênis", "sandálias", "botas", "chinelos"];
 
-  const handleClick = () => inputRef.current.focus();
+  const handleClick = () => {
+    console.log('muda valor mínimo');
+    const randomNumber = Math.floor(Math.random() * 11);
+    setMin(randomNumber);
+  }
 
-  const increment = () => setCount((count) => count + 1);
-  const decrement = () => setCount((count) => count - 1);
-
-  useEffect(() => {
-    prevCountRef.current = count;
-  }, [count]);
-
-  useEffect(() => {
-    setTimeout(() => {
-      console.log('passou aqui e não re-renderizou')
-      valueRef.current = 300;
-      console.log(valueRef.current);
-    }, 3000)
-  }, []);
+  const handleCalc = (event) => {
+    const val = parseFloat(event.target.value);
+    setValue(min + max + val);
+  }
 
   return (
-    <div style={{ marginTop: '20px', marginLeft: '20px' }}>
+    <div style={{ marginLeft: "10px" }}>
       <div>
-        <h1>Contador: {valueRef.current}</h1>
+        <h1>Valor Calculado: {value}</h1>
+        <Calc min={min} max={max} onChange={handleCalc} />
       </div>
+
       <br />
-      <div>
-        <p>Agora: {count}</p>
-        <p>Anterior: {prevCountRef.current}</p>
-        <button type="button" onClick={increment}>Adiciona 1</button>
-        <button type="button" onClick={decrement}>Remove 1</button>
-      </div>
-      <br />
-      <form>
-        <label htmlFor="name">Nome: </label>
-        <input type="text" id="name" name="name" ref={inputRef} />
-        <button onClick={handleClick}>Focar no input</button>
-      </form>
+
+      <Button
+        type="button"
+        onClick={handleClick}
+        className="btn btn-primary"
+      >
+        Muda valor mínimo
+      </Button>
+
+      <br /><hr /><br />
+      <Table title="Calçados" list={shoes} />
     </div>
   );
 }

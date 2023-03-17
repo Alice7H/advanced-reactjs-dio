@@ -93,6 +93,12 @@ O `useRef` é um hook que usa a mesma ref o tempo todo. Ele persiste a referênc
 
 O `createRef` é uma função que cria uma nova referência toda vez, ou seja, não persiste a referência existente entre as novas renderizações.
 
+## Dumb Components
+
+São os componentes que se preocupam apenas com apresentação; recebem valores via props; não possuem dependências com o restante da aplicação; não especificam como os dados são carregados ou sofrem mutação, recebem valores e callbacks exclusivamente via props. Raramente possuem estado, quando precisam é para controlar a interface e não dados do usuário; são escrito na maioria das vezes como componentes funcionais.
+
+Exemplos: Button, Card, Sidebar, Footer, List, Menu.
+
 ## Aprenda mais
 
 Você pode aprender mais com a [documentação do Create React App](https://facebook.github.io/create-react-app/docs/getting-started).
