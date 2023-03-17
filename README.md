@@ -69,6 +69,12 @@ Um erro de JavaScript em uma parte da UI não deve quebrar toda a aplicação. P
 
 Error boundaries não capturam erros em manipuladores de evento, código assíncrono, renderizações no servidor e erros lançados na própria error boundary.
 
+## Render props
+
+Refere-se a uma técnica de compartilhar código entre componentes React passando uma prop cujo valor é uma função.
+
+Um componente com uma render prop recebe uma função que retorna um elemento React e a invoca no momento de renderização, não sendo necessário para o componente implementar uma lógica própria.
+
 ## Aprenda mais
 
 Você pode aprender mais com a [documentação do Create React App](https://facebook.github.io/create-react-app/docs/getting-started).
