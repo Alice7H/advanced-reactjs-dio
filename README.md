@@ -75,6 +75,10 @@ Refere-se a uma técnica de compartilhar código entre componentes React passand
 
 Um componente com uma render prop recebe uma função que retorna um elemento React e a invoca no momento de renderização, não sendo necessário para o componente implementar uma lógica própria.
 
+## Typechecking com propTypes
+
+Na medida em que sua aplicação cresce, você pode capturar muitos bugs com checagem de tipos. Em algumas aplicações, você pode usar extensões do JavaScript como Flow ou Typescript para checar os tipos de toda a sua aplicação. Porém, mesmo se você não usá-las, React possui algumas habilidades de `checagem de tipos` nativos.
+
 ## Aprenda mais
 
 Você pode aprender mais com a [documentação do Create React App](https://facebook.github.io/create-react-app/docs/getting-started).
