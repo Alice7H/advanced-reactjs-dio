@@ -79,6 +79,20 @@ Um componente com uma render prop recebe uma função que retorna um elemento Re
 
 Na medida em que sua aplicação cresce, você pode capturar muitos bugs com checagem de tipos. Em algumas aplicações, você pode usar extensões do JavaScript como Flow ou Typescript para checar os tipos de toda a sua aplicação. Porém, mesmo se você não usá-las, React possui algumas habilidades de `checagem de tipos` nativos.
 
+## Refs e DOM
+
+Refs são uma abreviação (definida como qualquer valor que não acione uma nova renderização do componente quando for alterado), usado para acessar,interagir com nós React DOM ou elementos React e para alterar o valor de um componente filho, sem usar adereços. Também usado para armazenar uma referência a determinados nós DOM e/ou elementos React.
+
+Usado em manipulação de biblioteca de terceiros e em retornos de chamada, gerenciamento de inputs (foco), seleção de textos ou reprodução de mídias, animações imperativas.
+
+Seu uso deve ser evitado para ações declarativas e para fins de uso excessivo.
+
+Uma referência pode ser criada de duas maneiras: pelo gancho `useRef` ou pela função `createRef`.
+
+O `useRef` é um hook que usa a mesma ref o tempo todo. Ele persiste a referência existente entre as novas renderizações.
+
+O `createRef` é uma função que cria uma nova referência toda vez, ou seja, não persiste a referência existente entre as novas renderizações.
+
 ## Aprenda mais
 
 Você pode aprender mais com a [documentação do Create React App](https://facebook.github.io/create-react-app/docs/getting-started).

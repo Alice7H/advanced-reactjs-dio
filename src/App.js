@@ -1,29 +1,47 @@
-import React from 'react';
-import Exercise from './components/Exercise';
+import React, { useState, useEffect, useRef } from 'react';
 
 function App() {
-  const handleClick = () => {
-    console.log('Informações confirmadas');
-  }
+  const [count, setCount] = useState(0);
+  const prevCountRef = useRef();
+  const inputRef = useRef();
+  const valueRef = useRef(1);
 
-  const objAddress = {
-    cep: "18108808",
-    state: "SP",
-    city: "Sorocaba",
-    street: "Rua Antonio de Deus Pires",
-    district: "Inhayba",
-    number: 15
-  }
+  const handleClick = () => inputRef.current.focus();
+
+  const increment = () => setCount((count) => count + 1);
+  const decrement = () => setCount((count) => count - 1);
+
+  useEffect(() => {
+    prevCountRef.current = count;
+  }, [count]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      console.log('passou aqui e não re-renderizou')
+      valueRef.current = 300;
+      console.log(valueRef.current);
+    }, 3000)
+  }, []);
 
   return (
-    <Exercise
-      onClick={handleClick}
-      subjects={['Math', 'Portuguese', 'History']}
-      isRegistered={true}
-      address={objAddress}
-      name="Haley"
-      age={27}
-    />
+    <div style={{ marginTop: '20px', marginLeft: '20px' }}>
+      <div>
+        <h1>Contador: {valueRef.current}</h1>
+      </div>
+      <br />
+      <div>
+        <p>Agora: {count}</p>
+        <p>Anterior: {prevCountRef.current}</p>
+        <button type="button" onClick={increment}>Adiciona 1</button>
+        <button type="button" onClick={decrement}>Remove 1</button>
+      </div>
+      <br />
+      <form>
+        <label htmlFor="name">Nome: </label>
+        <input type="text" id="name" name="name" ref={inputRef} />
+        <button onClick={handleClick}>Focar no input</button>
+      </form>
+    </div>
   );
 }
 
