@@ -99,6 +99,12 @@ São os componentes que se preocupam apenas com apresentação; recebem valores 
 
 Exemplos: Button, Card, Sidebar, Footer, List, Menu.
 
+## Smart Components
+
+Preocupam-se como as coisas vão funcionar, podem conter smart e dumb components, providenciam dados e padrões de apresentação ou outros containers. Na maioria dos casos, possuem estado e podem chamar outros fluxos do sistema.
+
+Exemplos: UserGallery, UserPage, FilterBook, FollowersSidebar, ListCards.
+
 ## Aprenda mais
 
 Você pode aprender mais com a [documentação do Create React App](https://facebook.github.io/create-react-app/docs/getting-started).

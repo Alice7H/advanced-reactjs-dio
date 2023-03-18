@@ -12,6 +12,11 @@ function Button({ type, className, children, onClick }) {
   );
 }
 
+Button.defaultProps = {
+  type: 'button',
+  className: 'btn btn-primary'
+}
+
 Button.prototype = {
   onClick: PropTypes.func.isRequired,
 }

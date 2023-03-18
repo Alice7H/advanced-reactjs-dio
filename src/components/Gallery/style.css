@@ -1,0 +1,9 @@
+.gallery {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.gallery button {
+  margin: 10px auto 40px;
+}
