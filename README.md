@@ -105,6 +105,30 @@ Preocupam-se como as coisas vão funcionar, podem conter smart e dumb components
 
 Exemplos: UserGallery, UserPage, FilterBook, FollowersSidebar, ListCards.
 
+## Organização de Projeto
+
+Um exemplo de estrutura de projeto pode ser:
+
+- App: contém rotas, providers, fluxos de autenticação, validação, conteúdos globais.
+- containers: contém páginas como User, Store, Bank.
+- components: componentes smart e dumb
+  - index: import de todos os components
+  - Button
+    - index
+    - styles
+  - Card
+    - index
+    - styles
+- assets: contém imagens e estilos globais
+  - styles
+  - imgs
+- commons
+  - utils: arquivos de utilitários com tratamentos com string, remoção de espaço, funções com validações.
+  - contants: expressões para representar vários tipos de valores.
+  - i18n: internacionalização.
+- routes: rotas do sistema.
+- resources: chamadas de serviços, apis
+
 ## Aprenda mais
 
 Você pode aprender mais com a [documentação do Create React App](https://facebook.github.io/create-react-app/docs/getting-started).
